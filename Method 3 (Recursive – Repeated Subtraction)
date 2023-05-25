@@ -1,0 +1,35 @@
+#include<stdio.h>
+
+// Recursive function for repeated subtraction HCF calculation
+int getHCF(int num1, int num2)
+{
+    // Handles the case when one of the number is 0 (num1) 
+    // Check alert above in explanation
+    if (num1 == 0)
+       return num2;
+    
+    // Handles the case when one of the number is 0 (num2)
+    // Check alert above in explanation
+    if (num2 == 0)
+       return num1;
+  
+    // base case
+    if (num1 == num2)
+        return num1;
+  
+    // num1 is greater
+    if (num1 > num2)
+        return getHCF(num1 - num2, num2);
+
+    return getHCF(num1, num2 - num1);
+}
+int main()
+{
+    int num1 = 144, num2 = 32, hcf = 1;
+    
+    hcf = getHCF(num1, num2);
+    
+    printf("The HCF : %d", hcf);
+    
+    return 0;
+}
