@@ -1,0 +1,20 @@
+#include<stdio.h>
+
+// This method improves complexity of repeated substraction
+// By efficient use of modulo operator in euclidean algorithm
+int getHCF(int a, int b)
+{
+    return b == 0 ? a : getHCF(b, a % b);   
+}
+
+int main()
+{
+    int num1 = 144, num2 = 32, hcf = 1;
+    
+    hcf = getHCF(num1, num2);
+    
+    printf("The HCF : %d", hcf);
+    
+    return 0;
+}
+// Time Complexity: log(max(a,b))
